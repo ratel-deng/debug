@@ -17,3 +17,7 @@ gcc生成的debug文件结构：
 
 gcc -o -g xxx.out xxx.o
 生成debug文件
+
+objcopy --only-keep-debug demo.out demo.dbg
+将debug信息从Debug可执行文件中拷贝出来
+
