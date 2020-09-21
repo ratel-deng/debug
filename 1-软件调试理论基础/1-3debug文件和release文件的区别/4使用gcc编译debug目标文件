@@ -1,0 +1,19 @@
+gcc生成的debug文件结构：
+	ELF头
+	段头表
+	.init
+	.text
+	.rodata
+以上只读内存段
+	.data
+	.bss
+中间读写内存段
+	.symtab
+	.debug
+	.line
+	.strtab
+	.节头表
+下面符号表和调试信息，不装入内存
+
+gcc -o -g xxx.out xxx.o
+生成debug文件
