@@ -1,0 +1,26 @@
+printf行缓冲机制：
+	减少I/O时间，与磁盘读写时间
+	缓冲机制，遇到换行时打印，行满时打印
+	参考换行与不换行的区别
+	printf("demo1...\n");
+	sleep(1);//延时一秒
+	printf("demo2...\n");
+	sleep(1);//延时一秒
+	printf("demo3...");
+	sleep(1);//延时一秒
+	printf("demo4...");
+	sleep(1);//延时一秒
+	printf("demo5...");
+	sleep(1);//延时一秒
+
+在linux和windows环境下的差异：
+	在windows下sleep函数是毫秒级的
+	windows下没有行缓冲机制
+
+解决方案：
+	在printf里添加\n
+	刷新一下缓冲区，fflush(stdout);
+	直接将缓冲区禁掉：setvbuf(stdout,NULL,_IONBF,0);
+	使用错误标准流(错误流没有缓冲)：stdout有line buffer：fprintf(stderr,...);
+
+
