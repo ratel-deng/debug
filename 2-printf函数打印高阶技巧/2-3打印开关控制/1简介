@@ -1,0 +1,10 @@
+日志是有代价的：
+	尤其是在嵌入式对时序要求较高的场景
+	打印会影响系统性能
+	(类似我在stm32的报错函数打印，通过定义一个宏来控制开关)
+c99标准对可变参数宏的支持：
+	__VA_ARGS__
+
+
+#define DEBUG_prt(str,...) printf(str,##__VA_ARGS__)
+	DEBUG_prt("--DEBUG--\t%s\n","ratel");
