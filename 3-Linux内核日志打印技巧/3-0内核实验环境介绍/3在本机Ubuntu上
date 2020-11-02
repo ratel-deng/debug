@@ -1,0 +1,17 @@
+X86：Ubuntu16.04 + Linux4.4(LTS)
+内核模块编译
+内核模块加载
+查看内核打印信息
+
+试例：
+在本目录创建demo文件夹，编写hello.c与Makefile文件
+对于Makefile，要选择自己本机上合适的内核版本
+KDIR := /lib/modules/4.4.0-186-generic/build
+
+编译：make
+加载模块：insmod hello.ko
+(注意，加载后不会打印到屏幕上，因为控制台重定向到了尾终端上)
+(方法1：按Ctrl+Alt+F1切换到命令行模式，Alt+Ctrl+F7退出命令行模式)
+(方法2：使用dmesg命令查看终端信息，-c选项清除以前的信息)
+卸载模块：rmmod hello.ko
+

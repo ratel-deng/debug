@@ -1,0 +1,28 @@
+硬件配置：
+	ARM A9架构、512M DRAM、128M Flash、LCD屏、串口
+	支持Flash、SD卡启动、TFTP网络启动
+	挂载NFS文件系统
+软件：
+	QEMU-2.8
+	U-boot-201609
+	Linux-4.4 LTS
+内核模块编译、加载
+
+不同与本机上模块编译：
+Makefile:
+.PHONY:all clean
+ifneq ($(KERNELRELEASE),)
+
+obj-m := hello.o
+
+else
+
+KDIR := /home/linux-4.4
+all:
+	make CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm -C ${KDIR} M=${PWD} modules
+	cp hello.ko /home/nfs
+#交叉编译与拷贝到文件系统
+clean:
+	rm -f *.ko *.o *.mod.o *.mod.c *.symvers *.order
+endif
+
