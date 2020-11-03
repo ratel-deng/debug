@@ -1,0 +1,22 @@
+日志级别：
+	定义：include/linux/kern_levels.h
+	日志等级：/proc/sys/kernel/printk
+	cat /proc/sys/kernel/printk
+	4	4	1	7
+	分别为：控制台等级，日志等级，最低控制台打印等级，默认控制台打印等级
+	日志等级与控制台打印等级，日志等级要大于控制台等级才能打印到控制台
+修改控制台打印等级：
+	echo 8> /proc/sys/kernel/printk		方法1	
+	dmesg -n 8				方法2
+等级	宏定义
+0	KERN_EMERG
+1	KERN_ALERT
+2	KERN_CRIT
+3	KERN_ERR
+4	KERN_WARNNING
+5	KERN_NOTICE
+6	KERN_INFO
+7	KERN_DEBUG
+
+示例：
+pritnf(KERN_DEBUG"this is debug\n");
