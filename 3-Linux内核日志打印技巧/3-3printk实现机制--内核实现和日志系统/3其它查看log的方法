@@ -1,0 +1,14 @@
+通过dmesg：
+	dmesg -c 不是真正的清除，只是打印指针的移动
+使用cat /proc/kmsg：
+	查看所有的日志信息，实验后不能输出
+
+syslogd日志服务：
+	在Linux系统中会启动两个守护进程klogd&syslogd
+	守护进程klogd会根据syslog()系统调用或/proc文件系统从__log_buf读取printk的打印信息
+	根据配置文件/etc/*.conf将不同的服务产生的log记录到/var/log不同目录中
+
+rsyslogd：
+	增强版syslogd，在syslogd基础上增强数据库支持、日志内容筛选、定义日志格式模板
+	使用TCP传输rsyslog可以将日志从远程服务器传送到本地服务器上
+

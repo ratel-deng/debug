@@ -1,0 +1,9 @@
+printk实现流程：
+	test[]：打印到控制台的字符串缓存区
+	根据控制台等级先存放于cont.buf，调用console_unlock将cont.buf拷贝到test[]
+	最后调用底层终端设备wirte函数打印
+	__log_buf：内核日志缓冲区，包括等级低无法打印到控制台的日志
+控制台console与串口的绑定：
+	默认tty0：当前控制台使用的虚拟终端，Linux下一般为显示器、LCD显示屏
+	在嵌入式下，一般重定向console到串口终端
+控制台的初始化
