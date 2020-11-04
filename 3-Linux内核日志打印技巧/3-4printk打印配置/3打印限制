@@ -1,0 +1,16 @@
+printk对系统性能的影响：
+	函数效率低，字符单子节拷贝效率低
+	大量打印(串口)会拖满系统、影响系统性能
+	对时序要求严格的场合有影响(协议交互、同步传输、流媒体)
+printk打印限速：
+	printk_timed_ratelimit(unsigned long *caller_jiffies,unsigned int interval_msecs)
+	unsigned long time;
+	if(printk_timed_ratelimit(&time,1*HZ))
+		printk(<2>,"warning info\n");
+printk限速：
+	printk_ratelimit()
+	/proc/sys/kernel/printk_ratelimit	5控制打印间隔
+	/proc/sys/kernel/printk_ratelimit_burst	10控制打印条数
+
+
+

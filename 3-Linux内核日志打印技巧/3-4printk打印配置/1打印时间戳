@@ -1,0 +1,4 @@
+内核配置：
+	make menuconfig
+		.Kernel hacking
+			-Show timing information on printks
