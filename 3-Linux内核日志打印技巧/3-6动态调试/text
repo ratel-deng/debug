@@ -1,0 +1,14 @@
+动态调试优点：
+	打印开关在运行状态下就可以动态关闭
+	打印范围可控，模块级、文件级、某一行、某个函数、某个关键字符串
+内核配置：
+	内核配置：CONFIG_DYNAMIC_DEBUG，支持开启动态打印
+	驱动模块中使用pr_debug打印
+pr_debug输出等级、打印格式类似printk
+运行时动态打印开关控制：
+	echo "file hello.c +p"
+	/sys/kernel/debug/dynamic_debug/control
+	echo "file hello.c -p" >/sys/kernel/debug/dynamic_debug/control
+
+过于复杂，选择跳过
+
