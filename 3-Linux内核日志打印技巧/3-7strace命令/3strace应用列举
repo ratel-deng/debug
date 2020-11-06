@@ -1,0 +1,10 @@
+程序性能优化定位：app启动慢
+	strace -f -D -T -tt -o app.strace ./app
+	记录每个系统调用所消耗的时间
+跟踪一个进程：
+	strace -o tmp.txt -T -tt -e trace=network -p PID
+	跟踪进程ID为PID进程的系统调用
+	记录每个系统调用消耗的时间，时间显示格式为微秒级
+	只记录跟网络有关的系统调用，结果保存到tmp.txt
+
+

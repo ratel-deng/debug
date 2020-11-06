@@ -1,0 +1,13 @@
+下载源代码：
+	https://sourceforge.net/projects/strace/
+	建议直接去找安装包
+	https://gitee.com/src-openeuler/strace.git
+配置：
+	./configure --host=arm-linux CC=arm-linux-gnueabi-gcc LD=arm-linux-gnueabi-ld
+编译：
+	make CFLAGS+="-static"
+	如果报错，直接make也行
+优化程序体积：
+	arm-linux-gnueabi-strip strace
+
+
