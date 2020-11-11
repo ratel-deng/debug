@@ -1,0 +1,20 @@
+开启core dump：
+	在/etc/profile添加ulimit -c unlimited(不限制大小，如果是1024则是1k字节大小)
+	生成文件名格式core.pid：echo 1 > /proc/sys/kernel/core_uses_pid
+	（设置为1后，生成的core文件后缀名不重复）
+core dump文件格式设置：
+	查看文件格式：cat /proc/sys/kernel/core_pattern
+	设置文件格式：echo ./core.%e.%p > /proc/sys/kernel/core_pattern
+	(会在当前目录生成./core.程序名.进程号)
+	系统自启动生效：/etc/rc.local
+	（系统自启动脚本）
+core dump文件格式：
+	%p	所dump进程的进程ID
+	%u	所dump进程的实际用户ID
+	%g	所dump进程的实际组ID
+	%s	导致本次core dump的信号
+	%t	core dump的时间(由1970.1.1计起的秒数)
+	%h	主机名
+	%e	程序文件名
+
+
